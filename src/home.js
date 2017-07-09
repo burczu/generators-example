@@ -1,13 +1,13 @@
 import 'babel-polyfill';
 
-// function* decorator() {
+// function* generator() {
 //   console.log('dec');
 //   yield 'test';
 //   console.log('orator');
 //   return 'end!';
 // }
 //
-// const iterator = decorator();
+// const iterator = generator();
 //
 // const nextRes1 = iterator.next();
 // const nextRes2 = iterator.next();
@@ -15,13 +15,13 @@ import 'babel-polyfill';
 // console.log(nextRes1);
 // console.log(nextRes2);
 
-function* decorator() {
+function* generator() {
   for (let i = 0; i < 10; i++) {
     yield i;
   }
 }
 
-const iterator = decorator();
+const iterator = generator();
 
 for (const value of iterator) {
   console.log(value);
