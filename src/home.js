@@ -1,5 +1,8 @@
 import 'babel-polyfill';
+import co from 'co';
 
+// --- basic example ---
+//
 // function* generator() {
 //   console.log('dec');
 //   yield 'test';
@@ -15,14 +18,47 @@ import 'babel-polyfill';
 // console.log(nextRes1);
 // console.log(nextRes2);
 
-function* generator() {
-  for (let i = 0; i < 10; i++) {
-    yield i;
+
+// --- loop example ---
+//
+// function* generator() {
+//   for (let i = 0; i < 10; i++) {
+//     yield i;
+//   }
+// }
+//
+// const obj = new Obj();
+// const iterator = obj.generator();
+//
+// for (const value of iterator) {
+//   console.log(value);
+// }
+
+
+
+// --- async example ---
+//
+const getUsers = () => {
+  return new Promise((resolve) => {
+    resolve(['users']);
+  });
+}
+
+const getItems = (user) => {
+  if (user) {
+    return new Promise((resolve) => {
+      resolve('items');
+    });
   }
 }
 
-const iterator = generator();
+function* generator() {
+  const users = yield getUsers();
+  const items = yield getItems(users[0]); // zależy od users
 
-for (const value of iterator) {
-  console.log(value);
+  return items;
 }
+
+co(generator()).then((result) => {
+  console.log(result); // 'items'
+});
