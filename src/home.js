@@ -19,6 +19,7 @@ import co from 'co';
 // console.log(nextRes2);
 
 
+
 // --- loop example ---
 //
 // function* generator() {
