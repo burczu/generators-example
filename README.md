@@ -18,7 +18,7 @@ npm install
 Run example:
 
 ```zsh
-webpack
+yarn start
 ```
 
-Then check the results in the `./dist` folder.
+Open the `index.html` file in the browser (you can find it inside the `./dist` folder) and use browser dev tools to check the console.
