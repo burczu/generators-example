@@ -37,8 +37,23 @@ import co from 'co';
 
 
 
-// --- async example ---
+// --- observer example ---
+// function* generator() {
+//   while (true) {
+//     const val = yield; // pobranie wartości przekazanej przez 'next'
+//     console.log(val);
+//   }
+// }
 //
+// const observer = generator();
+//
+// observer.next(); // uruchamia obserwator
+// observer.next('obs');
+// observer.next('erver');
+
+
+// --- async example ---
+
 const getUsers = () => {
   return new Promise((resolve) => {
     resolve(['users']);
